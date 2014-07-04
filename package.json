@@ -1,6 +1,6 @@
 {
   "name": "jquery-mag-glass",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Magnifying glass for images",
   "main": "dist/mag-glass.js",
   "repository": {
