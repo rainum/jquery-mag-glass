@@ -1,0 +1,30 @@
+{
+  "name": "jquery-mag-glass",
+  "version": "0.0.1",
+  "homepage": "https://github.com/rainum/jquery-mag-glass",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rainum/jquery-mag-glass.git"
+  },
+  "authors": [
+    {
+      "name": "Vazha Omanashvili",
+      "homepage": "http://rainum.me"
+    }
+  ],
+  "description": "Magnifying glass for images",
+  "main": "dist/mag-glass.js",
+  "keywords": [
+    "magnifying",
+    "glass",
+    "lens"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

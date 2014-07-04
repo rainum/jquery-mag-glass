@@ -1,5 +1,5 @@
 /*!
- * jQuery Mag Glass Plugin v0.0.1
+ * jQuery Mag Glass Plugin v@VERSION
  * https://github.com/rainum/jquery-mag-glass
  *
  * Copyright 2014, Vazha Omanashvili
@@ -7,6 +7,8 @@
  *
  * Licensed under the MIT license:
  * http://www.opensource.org/licenses/MIT
+ *
+ * @DATE
  */
 
 (function ($) {

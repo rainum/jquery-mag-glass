@@ -4,6 +4,12 @@ module.exports = function (grunt) {
   // Define the configuration for all the tasks
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    compile: {
+      all: {
+        dest: 'dist/mag-glass.js',
+        src: 'src/mag-glass.js'
+      }
+    },
     autoprefixer: {
       options: {
         browsers: ['last 3 version']
@@ -41,12 +47,6 @@ module.exports = function (grunt) {
         }
       }
     },
-    copy: {
-      js: {
-        src: 'src/mag-glass.js',
-        dest: 'dist/mag-glass.js'
-      }
-    },
     watch: {
       gruntfile: {
         files: 'Gruntfile.js',
@@ -63,6 +63,9 @@ module.exports = function (grunt) {
     }
   });
 
+  // Integrate specific tasks
+  grunt.loadTasks('tasks');
+
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
@@ -71,7 +74,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
-    'copy',
+    'compile',
     'autoprefixer',
     'uglify',
     'cssmin'
