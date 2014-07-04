@@ -1,5 +1,5 @@
 /*!
- * jQuery Mag Glass Plugin v0.0.2
+ * jQuery Mag Glass Plugin v0.0.4
  * https://github.com/rainum/jquery-mag-glass
  *
  * Copyright 2014, Vazha Omanashvili

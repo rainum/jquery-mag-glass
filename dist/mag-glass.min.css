@@ -1,2 +1,2 @@
-/* jQuery Mag Glass Plugin v0.0.2 | (c) 2014 Vazha Omanashvili */
+/* jQuery Mag Glass Plugin v0.0.4 | (c) 2014 Vazha Omanashvili */
 .mag-glass{background-position:0 0;background-repeat:no-repeat;background-color:#f6fafb;border-radius:50%}.mag-glass:before{content:'';position:absolute;left:-6px;top:0;right:0;bottom:0;border-radius:50%;border:6px solid rgba(0,0,0,.1);box-shadow:0 9px 25px rgba(0,0,0,.45),inset 0 10px 40px rgba(255,255,255,.2),inset 0 0 18px rgba(255,255,255,.2);background-image:-webkit-linear-gradient(bottom,rgba(0,0,0,.05) 0,rgba(255,255,255,.05) 100%);background-image:linear-gradient(to top,rgba(0,0,0,.05) 0,rgba(255,255,255,.05) 100%)}
