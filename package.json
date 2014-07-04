@@ -1,0 +1,38 @@
+{
+  "name": "jquery-mag-glass",
+  "version": "0.0.1",
+  "description": "Magnifying glass for images",
+  "main": "dist/mag-glass.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rainum/jquery-mag-glass.git"
+  },
+  "keywords": [
+    "magnifying",
+    "glass",
+    "lens"
+  ],
+  "author": {
+    "name": "Vazha Omanashvili",
+    "url": "http://rainum.me"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rainum/jquery-mag-glass/issues"
+  },
+  "homepage": "https://github.com/rainum/jquery-mag-glass",
+  "devDependencies": {
+    "bower": "*",
+    "grunt": "~0.4.5",
+    "grunt-autoprefixer": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-cssmin": "^0.10.0",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "load-grunt-tasks": "*"
+  },
+  "scripts": {
+    "build": "npm install && grunt",
+    "start": "grunt watch"
+  }
+}
