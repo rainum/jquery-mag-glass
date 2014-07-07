@@ -65,8 +65,7 @@
   };
 
   MagGlass.prototype.handleEvents = function () {
-    this.$lens.mousemove($.proxy(this.setLensPosition, this));
-    this.$element.mousemove($.proxy(this.setLensPosition, this));
+    $(document).on('mousemove', $.proxy(this.setLensPosition, this));
   };
 
   MagGlass.prototype.resetLensPosition = function (animate) {
@@ -86,13 +85,13 @@
     var topPos = parseInt(pageY - this.$element.offset().top);
     var _this = this;
 
-    clearTimeout(this.lensResetTimeout);
-
     if (leftPos < 0 || topPos < 0 || leftPos > this.$element.width() || topPos > this.$element.height()) {
       this.lensResetTimeout = setTimeout(function () {
         _this.resetLensPosition(true);
       }, this.options.lensResetTimeout);
     } else {
+      clearTimeout(this.lensResetTimeout);
+
       var lensStyle = {
         backgroundPositionX: -((leftPos) * this.aspectRatio.width - this.$lens.width() / 2),
         backgroundPositionY: -((topPos) * this.aspectRatio.height - this.$lens.height() / 2),
@@ -148,4 +147,6 @@
       magGlass.resetLensPosition();
     });
   });
+
+  // TODO implement data-api
 })(jQuery);
