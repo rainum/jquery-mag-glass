@@ -85,16 +85,16 @@
     var topPos = parseInt(pageY - this.$element.offset().top);
     var _this = this;
 
+    clearTimeout(this.lensResetTimeout);
+
     if (leftPos < 0 || topPos < 0 || leftPos > this.$element.width() || topPos > this.$element.height()) {
       this.lensResetTimeout = setTimeout(function () {
         _this.resetLensPosition(true);
       }, this.options.lensResetTimeout);
     } else {
-      clearTimeout(this.lensResetTimeout);
-
       var lensStyle = {
-        backgroundPositionX: -((leftPos) * this.aspectRatio.width - this.$lens.width() / 2),
-        backgroundPositionY: -((topPos) * this.aspectRatio.height - this.$lens.height() / 2),
+        backgroundPosition: -((leftPos) * this.aspectRatio.width - this.$lens.width() / 2) + 'px ' +
+                            -((topPos) * this.aspectRatio.height - this.$lens.height() / 2) + 'px',
         left: pageX - this.$lens.width() / 2,
         top: pageY - this.$lens.height() / 2
       };
@@ -146,6 +146,35 @@
       var magGlass = $(this).data('magGlass');
       magGlass.resetLensPosition();
     });
+  });
+
+  // Fix backgroundPosition animation in Gecko.
+  // Thanks to Alexander Farkas
+  // =================
+
+  $.extend($.fx.step, {
+    backgroundPosition: function (fx) {
+      if (fx.pos === 0 && typeof fx.end == 'string') {
+        var start = $.css(fx.elem, 'backgroundPosition');
+        start = toArray(start);
+        fx.start = [start[0], start[2]];
+        var end = toArray(fx.end);
+        fx.end = [end[0], end[2]];
+        fx.unit = [end[1], end[3]];
+      }
+      var nowPosX = [];
+      nowPosX[0] = ((fx.end[0] - fx.start[0]) * fx.pos) + fx.start[0] + fx.unit[0];
+      nowPosX[1] = ((fx.end[1] - fx.start[1]) * fx.pos) + fx.start[1] + fx.unit[1];
+      fx.elem.style.backgroundPosition = nowPosX[0] + ' ' + nowPosX[1];
+
+      function toArray(strg) {
+        strg = strg.replace(/left|top/g, '0px');
+        strg = strg.replace(/right|bottom/g, '100%');
+        strg = strg.replace(/([0-9\.]+)(\s|\)|$)/g, "$1px$2");
+        var res = strg.match(/(-?[0-9\.]+)(px|\%|em|pt)\s(-?[0-9\.]+)(px|\%|em|pt)/);
+        return [parseFloat(res[1], 10), res[2], parseFloat(res[3], 10), res[4]];
+      }
+    }
   });
 
   // TODO implement data-api
