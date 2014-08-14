@@ -18,7 +18,8 @@ If you have twice difference in sizes, you will have twice scale in lens etc.
 
 ## Options
 
-Option | Type | Default | Description
+Option | Type | Default    | Description
+-------|------|------------|------------
 lensPosition | Object | `{ top: 50, left: 20 }` | Initial lens position
 lensSize | Object | `{ width: 50, height: 20 }` | Lens sizes
 lensClass | String | `'mag-glass'` | Lens element class
